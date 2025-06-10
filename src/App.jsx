@@ -1,34 +1,22 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { Provider } from 'react-redux';
-import { store } from './app/store';
-import Layout from './components/Layout';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import Products from './pages/Products';
-import ProductForm from './pages/ProductForm';
-import NotFound from './pages/NotFound';
-import ProtectedRoute from './routes/ProtectedRoute';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { StrictMode } from 'react';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
+import ProductsPage from './pages/ProductsPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App() {
   return (
-    <Provider store={store}>
-      <Router>
-        <Layout>
+      <BrowserRouter>
+        <div className="app">
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route element={<ProtectedRoute />}>
-              <Route path="/" element={<Dashboard />} />
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/products" element={<Products />} />
-              <Route path="/products/add" element={<ProductForm />} />
-              <Route path="/products/edit/:id" element={<ProductForm />} />
-            </Route>
-            <Route path="*" element={<NotFound />} />
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/" element={<DashboardPage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
-        </Layout>
-      </Router>
-    </Provider>
+        </div>
+      </BrowserRouter>
   );
 }
 
