@@ -34,6 +34,7 @@ cd emotemusic
 
 * **Project Setup:** Uses npm to install dependencies via npm install.
 * **Development:** npm run dev to start a development server.
+* **Website:** https://ddekshinacrm.netlify.app
 
 ## Conclusion
 
